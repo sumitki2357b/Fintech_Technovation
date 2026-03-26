@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { ModelArtifact, PredictResponse, RiskyTransaction } from '../types/api'
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ?? 'https://bastikahasti-ml.onrender.com'
+  import.meta.env.VITE_API_BASE_URL ?? 'https://fintech-technovation-main.onrender.com/predict'
 
 function resolveDownloadUrl(downloadUrl: string) {
   if (downloadUrl.startsWith('http://') || downloadUrl.startsWith('https://')) {

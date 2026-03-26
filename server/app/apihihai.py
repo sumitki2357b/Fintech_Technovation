@@ -15,9 +15,9 @@ async def predict(file: UploadFile = File(...)):
         tmp.write(file.file.read())
         path = tmp.name
 
-    # 🔥 LIMIT DATA (VERY IMPORTANT)
+    # 🔥 LIMIT TO 20k ROWS
     df = pd.read_csv(path)
-    df = df.head(1000)
+    df = df.head(20000)
     df.to_csv(path, index=False)
 
     result = run_feature_pipeline(csv_path=path)

@@ -9,7 +9,6 @@ from app.schemas.response import PipelineResult
 
 
 def run_feature_pipeline(csv_path: str, output_path: Optional[str] = None) -> PipelineResult:
-    """Execute the feature-engineering job and optionally persist the result."""
     dataframe, summary = FraudFeatureEngineer(csv_path=csv_path).run()
 
     if output_path:
@@ -19,5 +18,5 @@ def run_feature_pipeline(csv_path: str, output_path: Optional[str] = None) -> Pi
         "rows_processed": int(len(dataframe)),
         "columns_produced": list(dataframe.columns),
         "summary": summary,
-        "dataframe": dataframe,
+        "data": dataframe.head(50).to_dict(orient="records"),
     }
